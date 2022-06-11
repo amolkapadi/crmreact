@@ -1,24 +1,26 @@
-import logo from './logo.svg';
 import './App.css';
-
+import Modules from './Component/Modules/Modules';
+import Navbar from './Component/Navbar/Navbar';
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+} from "react-router-dom";
+import Crm from './Component/CRM/Crm';
+import NewLead from './Component/NewLead/NewLead';
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+  
+    <BrowserRouter>
+    <Navbar />
+    <Routes>
+      <Route path="/" element={<Modules />} />
+      <Route path="/crm" element={<Crm />} />
+      <Route path="/newlead" element={<NewLead />} />
+
+    </Routes>
+  </BrowserRouter>
+  
   );
 }
 
